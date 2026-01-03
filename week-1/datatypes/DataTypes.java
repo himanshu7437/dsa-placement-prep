@@ -2,17 +2,20 @@ package datatypes;
 
 /*
  * =========================================================
- *              JAVA DATA TYPES – EASY EXPLANATION
+ *        JAVA DATA TYPES – COMPLETE & EASY GUIDE
  * =========================================================
  *
- * Data types tell Java:
- * 1) What kind of data a variable can store
- * 2) How much memory is needed
- * 3) What operations are allowed on that data
+ * This file explains:
+ * 1. Primitive Data Types
+ * 2. Type Promotion
+ * 3. Widening Conversion
+ * 4. Narrowing Conversion
+ * 5. String Data Type (VERY IMPORTANT)
  *
- * Think of data types as different sized boxes 📦
- * Small box → small data
- * Big box   → big data
+ * After understanding this file, you are ready to move to:
+ * 👉 Operators
+ * 👉 Conditions
+ * 👉 Loops
  */
 
 public class DataTypes {
@@ -21,120 +24,187 @@ public class DataTypes {
 
         /*
          * =================================================
-         * 1️⃣ INTEGRAL (WHOLE NUMBER) DATA TYPES
+         * 1️⃣ INTEGRAL DATA TYPES (Whole Numbers)
          * =================================================
-         * Used to store numbers WITHOUT decimal points
          */
 
-        // byte → 1 byte (8 bits)
-        // Range: -128 to 127
-        byte byteValue = 10;
+        byte b = 10;       // 1 byte → very small numbers
+        short s = 1000;    // 2 bytes
+        int i = 100000;    // 4 bytes → MOST USED
+        long l = 10000000000L; // 8 bytes → very large numbers
 
-        // short → 2 bytes
-        // Range: -32,768 to 32,767
-        short shortValue = 1000;
-
-        // int → 4 bytes (MOST COMMONLY USED)
-        // Range: approx -2 billion to +2 billion
-        int intValue = 100000;
-
-        // long → 8 bytes (for very large numbers)
-        // Must use 'L' at the end
-        long longValue = 10000000000L;
+        System.out.println("Integral Types:");
+        System.out.println(b + ", " + s + ", " + i + ", " + l);
 
         /*
-         * Java automatically converts smaller data types
-         * into bigger ones during calculations.
-         * This is called TYPE PROMOTION.
+         * TYPE PROMOTION
+         * Java automatically converts smaller types to bigger ones
+         * during calculations.
          */
 
-        System.out.println("Type Promotion Example:");
-        System.out.println(shortValue + longValue); // short → long → result is long
+        System.out.println("\nType Promotion Example:");
+        System.out.println(s + l); // short → long → result is long
 
         /*
          * =================================================
-         * 2️⃣ DECIMAL (FLOATING POINT) DATA TYPES
+         * 2️⃣ DECIMAL DATA TYPES
          * =================================================
-         * Used to store numbers WITH decimal points
          */
 
-        // float → 4 bytes (less precise)
-        // Must use 'f' at the end
-        float floatValue = 3.14f;
+        float f = 3.14f;       // 4 bytes → less precise
+        double d = 3.14159265; // 8 bytes → more precise (DEFAULT)
 
-        // double → 8 bytes (MORE precise, DEFAULT choice)
-        double doubleValue = 3.1415926535;
-
-        System.out.println("\nDecimal Values:");
-        System.out.println("Float value  : " + floatValue);
-        System.out.println("Double value : " + doubleValue);
+        System.out.println("\nDecimal Types:");
+        System.out.println("float  = " + f);
+        System.out.println("double = " + d);
 
         /*
          * =================================================
          * 3️⃣ BOOLEAN DATA TYPE
          * =================================================
-         * Used to store true / false values
-         * Size: 1 bit
          */
 
-        boolean isJavaEasy = true;
-        boolean isFishFlying = false;
+        boolean isJavaFun = true;
+        boolean isSkyGreen = false;
 
-        System.out.println("\nBoolean Values:");
-        System.out.println("Is Java Easy? " + isJavaEasy);
-        System.out.println("Can fish fly? " + isFishFlying);
+        System.out.println("\nBoolean Type:");
+        System.out.println(isJavaFun);
+        System.out.println(isSkyGreen);
 
         /*
          * =================================================
          * 4️⃣ CHARACTER DATA TYPE
          * =================================================
-         * Used to store a SINGLE character
-         * Size: 2 bytes (because Java uses Unicode)
          */
 
-        char grade = 'A';
-        char symbol = '@';
+        char ch = 'A';      // single character
+        char symbol = '#';  // symbols allowed
 
-        System.out.println("\nCharacter Values:");
-        System.out.println("Grade  : " + grade);
-        System.out.println("Symbol : " + symbol);
+        System.out.println("\nCharacter Type:");
+        System.out.println(ch);
+        System.out.println(symbol);
 
         /*
          * =================================================
-         * 📌 IMPORTANT INTERVIEW NOTES
+         * 5️⃣ WIDENING TYPE CONVERSION (AUTOMATIC)
          * =================================================
          *
-         * ✔ int is preferred for most DSA problems
-         * ✔ long is used when numbers are very large
-         * ✔ double is preferred over float
-         * ✔ char uses single quotes (' ')
-         * ✔ boolean only stores true or false
+         * Smaller → Bigger
+         * Safe
+         * No data loss
          */
 
-        System.out.println("\n--- Program End ---");
+        int small = 100;
+        long big = small;        // int → long
+        double bigger = big;     // long → double
+
+        System.out.println("\nWidening Conversion:");
+        System.out.println(big);
+        System.out.println(bigger);
+
+        /*
+         * =================================================
+         * 6️⃣ NARROWING TYPE CONVERSION (EXPLICIT CASTING)
+         * =================================================
+         *
+         * Bigger → Smaller
+         * NOT automatic
+         * Data loss possible
+         */
+
+        double price = 99.99;
+        int roundedPrice = (int) price; // decimal part lost
+
+        System.out.println("\nNarrowing Conversion:");
+        System.out.println("Before casting: " + price);
+        System.out.println("After casting : " + roundedPrice);
+
+        /*
+         * =================================================
+         * 7️⃣ STRING DATA TYPE (VERY IMPORTANT)
+         * =================================================
+         *
+         * String is NOT a primitive data type.
+         * It is a CLASS in Java.
+         *
+         * Used to store text.
+         */
+
+        String name = "Himanshu";
+        String greeting = "Hello";
+
+        System.out.println("\nString Type:");
+        System.out.println(name);
+        System.out.println(greeting);
+
+        /*
+         * STRING OPERATIONS
+         */
+
+        // 1. Concatenation (joining strings)
+        String fullGreeting = greeting + " " + name;
+        System.out.println("\nString Concatenation:");
+        System.out.println(fullGreeting);
+
+        // 2. Length of string
+        System.out.println("Length: " + name.length());
+
+        // 3. Character at index
+        System.out.println("Char at index 0: " + name.charAt(0));
+
+        // 4. Convert to uppercase
+        System.out.println("Uppercase: " + name.toUpperCase());
+
+        // 5. Compare strings
+        String a = "Java";
+        String c = "Java";
+
+        System.out.println("\nString Comparison:");
+        System.out.println(a.equals(c)); // TRUE
+
+        /*
+         * =================================================
+         * STRING IMMUTABILITY (VERY IMPORTANT CONCEPT)
+         * =================================================
+         *
+         * Once a String is created, it CANNOT be changed.
+         */
+
+        String lang = "Java";
+        lang.concat(" Programming"); // this creates a NEW string
+
+        System.out.println("\nString Immutability:");
+        System.out.println(lang); // Still "Java"
+
+        // Correct way
+        lang = lang.concat(" Programming");
+        System.out.println(lang); // "Java Programming"
+
+        /*
+         * Why Java made String immutable?
+         * ✔ Security
+         * ✔ Memory efficiency
+         * ✔ Thread safety
+         */
+
+        /*
+         * =================================================
+         * 📌 FINAL INTERVIEW NOTES
+         * =================================================
+         *
+         * ✔ Use int for most DSA problems
+         * ✔ Use long for large numbers
+         * ✔ Use double for decimals
+         * ✔ Use char for single characters
+         * ✔ String is immutable
+         * ✔ Use equals() to compare strings
+         *
+         * After this, move to:
+         * 👉 Operators
+         * 👉 Conditions
+         * 👉 Loops
+         */
+
+        System.out.println("\n--- END OF DATA TYPES ---");
     }
 }
-
-/*
- * =========================================================
- * QUICK SUMMARY
- * =========================================================
- *
- * Integral Numbers:
- * byte  → 1 byte
- * short → 2 bytes
- * int   → 4 bytes
- * long  → 8 bytes
- *
- * Decimal Numbers:
- * float  → 4 bytes
- * double → 8 bytes
- *
- * Boolean:
- * boolean → 1 bit (true / false)
- *
- * Characters:
- * char → 2 bytes (Unicode support)
- *
- * =========================================================
- */
