@@ -11,11 +11,6 @@ package operators;
  * 2️⃣ Bitwise Operators
  * 3️⃣ Relational Operators
  * 4️⃣ Logical Operators
- *
- * After this topic, you can confidently move to:
- * 👉 If–Else
- * 👉 Control Flow
- * 👉 Loops
  */
 
 public class Operators {
@@ -167,9 +162,6 @@ public class Operators {
          * LOGICAL:
          * &&  ||  !
          *
-         * =================================================
-         * NEXT TOPIC:
-         * 👉 Control Flow (if-else, loops)
          * =================================================
          */
 

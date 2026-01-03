@@ -12,10 +12,6 @@ package datatypes;
  * 4. Narrowing Conversion
  * 5. String Data Type (VERY IMPORTANT)
  *
- * After understanding this file, you are ready to move to:
- * 👉 Operators
- * 👉 Conditions
- * 👉 Loops
  */
 
 public class DataTypes {
@@ -199,10 +195,6 @@ public class DataTypes {
          * ✔ String is immutable
          * ✔ Use equals() to compare strings
          *
-         * After this, move to:
-         * 👉 Operators
-         * 👉 Conditions
-         * 👉 Loops
          */
 
         System.out.println("\n--- END OF DATA TYPES ---");
