@@ -6,6 +6,7 @@ public class ProblemSet {
 
     // ques - 1) Reverse String
     // ques - 2) palindrome check
+    // ques - 3) valid palindrome
     }
 
     //soln1 
@@ -70,6 +71,34 @@ public class ProblemSet {
 
 	}
 
+
+    // soln3
+
+    public boolean isPalindrome(String s) {
+        // check if string is empty or not
+        if(s == null || s.length()  == 0) return true;
+
+        int left = 0, right = s.length() - 1;
+
+        while(left < right) {
+
+            // check if not alphanumeric
+            while(left < right && !Character.isLetterOrDigit(s.charAt(left))) left++;
+            while(left < right && !Character.isLetterOrDigit(s.charAt(right))) right--;
+
+            // checking
+            if(Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) {
+                return false;
+            }
+
+            // pointer increment and decrement
+            left++;
+            right--;
+        }
+
+        return true;
+
+    }
     
 }
 
