@@ -7,7 +7,7 @@ switch statements
 what are arrays, Strings?
 loops
 functions methods
-complexity
+complexity 
 
 article - https://www.geeksforgeeks.org/java/introduction-to-java/
 
