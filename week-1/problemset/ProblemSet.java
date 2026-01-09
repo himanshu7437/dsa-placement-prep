@@ -7,6 +7,8 @@ public class ProblemSet {
     // ques - 1) Reverse String
     // ques - 2) palindrome check
     // ques - 3) valid palindrome
+    // ques - 4) Reverse words
+    // ques - 5) Maximum Occurring Character
     }
 
     //soln1 
@@ -98,6 +100,81 @@ public class ProblemSet {
 
         return true;
 
+    }
+    
+    // soln4
+
+    // ------ approach 1 --------
+
+    public String reverseWords1(String s) {
+
+        String[] words = s.split("\\.+");
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = words.length - 1; i >= 0; i--) {
+            if (words[i].length() == 0) continue; // 🔥 key fix
+
+            if (sb.length() > 0) {
+                sb.append(".");
+            }
+            sb.append(words[i]);
+        }
+
+        return sb.toString();
+    }
+
+    // ----- approach 2------
+    
+    public String reverseWords(String s) {
+
+        StringBuilder result = new StringBuilder();
+        StringBuilder word = new StringBuilder();
+
+        for (int i = s.length() - 1; i >= 0; i--) {
+            char ch = s.charAt(i);
+
+            if (ch != '.') {
+                word.append(ch);
+            } else if (word.length() > 0) {
+                result.append(word.reverse()).append(".");
+                word.setLength(0);
+            }
+        }
+
+        // last word
+        if (word.length() > 0) {
+            result.append(word.reverse());
+        } else if (result.length() > 0) {
+            result.setLength(result.length() - 1); // remove extra dot
+        }
+
+        return result.toString();
+    }
+
+    // soln5
+
+    public char getMaxOccuringChar(String s) {
+        // code here
+        
+        int[] freq = new int[26];
+        
+        //count frequency
+        for(int i = 0; i < s.length(); i++) {
+            freq[s.charAt(i) - 'a']++;
+        }
+        
+        int maxFreq = 0;
+        char result = 'a';
+        
+        // finding the max frequency character
+        for(int i = 0; i < 26; i++) {
+            if(freq[i] > maxFreq) {
+                maxFreq = freq[i];
+                result = (char)(i + 'a');
+            }
+        }
+        
+        return result;
     }
     
 }

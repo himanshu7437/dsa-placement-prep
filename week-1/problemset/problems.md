@@ -4,9 +4,12 @@ Check Palindrome - https://www.naukri.com/code360/problems/check-if-the-string-i
 
 Valid Palindrome - https://leetcode.com/problems/valid-palindrome/
 
-Reverse words - 
-Maximum Occurring Character - 
+Reverse words - https://www.geeksforgeeks.org/problems/reverse-words-in-a-given-string5459/1
+
+Maximum Occurring Character - https://www.geeksforgeeks.org/problems/reverse-words-in-a-given-string5459/1
+
 Replace Spaces - 
+
 Remove All Occurrences of SubString - 
 String Compression -
 Permutation In String -
