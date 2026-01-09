@@ -8,9 +8,10 @@ Reverse words - https://www.geeksforgeeks.org/problems/reverse-words-in-a-given-
 
 Maximum Occurring Character - https://www.geeksforgeeks.org/problems/reverse-words-in-a-given-string5459/1
 
-Replace Spaces - 
+Replace Spaces - https://www.naukri.com/code360/problems/replace-spaces_1172172?leftPanelTabValue=SUBMISSION
 
-Remove All Occurrences of SubString - 
+Remove All Occurrences of SubString - https://leetcode.com/problems/remove-all-occurrences-of-a-substring/
+
 String Compression -
 Permutation In String -
 Remove All Adjacent Duplicates In String - 

@@ -176,6 +176,65 @@ public class ProblemSet {
         
         return result;
     }
+
+
+    // soln6
+
+    // --- approach 1 ---
+	public static StringBuilder replaceSpaces1(StringBuilder str) {
+		// Write your code here.
+		return new StringBuilder(str.toString().replaceAll("\s+", "@40"));
+	}
+
+    // --- approach 2(optimal) ---
+    
+    public static StringBuilder replaceSpaces(StringBuilder str) {
+		// Write your code here.
+		StringBuilder result = new StringBuilder();
+
+		for(int i = 0; i < str.length(); i++) {
+			char ch = str.charAt(i);
+
+			if(ch == ' ') {
+				result.append("@40");
+			} else{
+				result.append(ch);
+			}
+		}
+
+		return result;
+	}
+
+
+    //soln7
+
+    public String removeOccurrences(String s, String part) {
+        
+        StringBuilder sb = new StringBuilder();
+        int partLen = part.length();
+
+        for(char ch : s.toCharArray()) {
+            sb.append(ch);
+
+            if(sb.length() >= partLen) {
+                boolean match = true;
+
+                for(int i = 0; i < partLen; i++) {
+                    if(sb.charAt(sb.length() - partLen + i) != part.charAt(i)){
+                        match = false;
+                        break;
+                    }
+                }
+
+                if(match) {
+                    sb.delete(sb.length() - partLen, sb.length());
+                }
+            }
+        }
+
+        return sb.toString();
+    }
+
     
 }
 
