@@ -6,4 +6,8 @@ ques - 2) https://www.geeksforgeeks.org/problems/print-1-to-n-without-using-loop
 
 ques - 3) https://www.geeksforgeeks.org/problems/print-n-to-1-without-loop/1
 
- 
+ques - 4) https://www.geeksforgeeks.org/problems/sum-of-series2811/1
+
+ques - 5) https://www.geeksforgeeks.org/problems/factorial5739/1
+
+ques - 6) https://www.geeksforgeeks.org/problems/reverse-an-array/1

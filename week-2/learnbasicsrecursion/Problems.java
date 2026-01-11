@@ -7,7 +7,7 @@ public class Problems {
         // ques - 3) print N to 1
         // ques - 4) sum of first N
         // ques - 5) factorial of N
-        // ques - 6) reverse an array
+        // ques - 6) reverse an array - reverseHelper(arr, 0, arr.length - 1);
         // ques - 7) check if a string is palindrome or not
         // ques - 8) fibonacci number
     }
@@ -75,5 +75,68 @@ public class Problems {
         printNos(N - 1);
     }
 
+    // soln4 
 
+    public static int findSum(int n) {
+
+        /*
+         Time Complexity: O(N)
+         Explanation:
+         - Function is called once for each value from n to 0
+
+         Space Complexity: O(N)
+         Explanation:
+         - Recursive call stack stores N function calls
+         */
+
+        if (n == 0) return 0;
+        return n + findSum(n - 1);
+    }
+
+    // soln5 
+
+    public static int factorial(int n) {
+
+        /*
+         Time Complexity: O(N)
+         Explanation:
+         - Function is called once for each value from n to 1
+
+         Space Complexity: O(N)
+         Explanation:
+         - Recursive call stack stores N function calls
+         */
+
+        if (n == 0 || n == 1) return 1;
+        return n * factorial(n - 1);
+    }
+    
+    // soln6
+
+    public static void reverseHelper(int arr[], int left, int right) {
+        /*
+        Time Complexity: O(N)
+        - Each element is visited once to swap.
+        - Total N/2 swaps → O(N)
+
+        Space Complexity: O(N)
+        - Recursive call stack stores N/2 calls (O(N) in worst case)
+        */
+
+        /*
+         Base Case:
+         If left >= right, all elements are swapped, stop recursion
+        */
+        if (left >= right) return;
+
+        // Swap elements at left and right
+        int temp = arr[left];
+        arr[left] = arr[right];
+        arr[right] = temp;
+
+        // Recurse for the next pair
+        reverseHelper(arr, left + 1, right - 1);
+    }
+
+    
 }
