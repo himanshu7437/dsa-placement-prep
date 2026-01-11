@@ -11,3 +11,7 @@ ques - 4) https://www.geeksforgeeks.org/problems/sum-of-series2811/1
 ques - 5) https://www.geeksforgeeks.org/problems/factorial5739/1
 
 ques - 6) https://www.geeksforgeeks.org/problems/reverse-an-array/1
+
+ques - 7) https://leetcode.com/problems/valid-palindrome/description/
+
+ques - 8) https://leetcode.com/problems/fibonacci-number/description/

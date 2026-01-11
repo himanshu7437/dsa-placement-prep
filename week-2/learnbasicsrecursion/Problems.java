@@ -8,7 +8,7 @@ public class Problems {
         // ques - 4) sum of first N
         // ques - 5) factorial of N
         // ques - 6) reverse an array - reverseHelper(arr, 0, arr.length - 1);
-        // ques - 7) check if a string is palindrome or not
+        // ques - 7) check if a string is palindrome or not - helper(s, 0, s.length() - 1);
         // ques - 8) fibonacci number
     }
 
@@ -138,5 +138,58 @@ public class Problems {
         reverseHelper(arr, left + 1, right - 1);
     }
 
-    
+    // soln7
+
+     public static boolean helper(String s, int left, int right) {
+        /*
+        Time Complexity: O(N)
+        - Each character is visited at most once
+        - Skipping non-alphanumeric is O(1) per character
+
+        Space Complexity: O(N)
+        - Recursive call stack depth can go up to N in worst case
+        */
+
+        // Base case: pointers crossed
+        if (left >= right) return true;
+
+        // Skip non-alphanumeric on left
+        if (!Character.isLetterOrDigit(s.charAt(left))) {
+            return helper(s, left + 1, right);
+        }
+
+        // Skip non-alphanumeric on right
+        if (!Character.isLetterOrDigit(s.charAt(right))) {
+            return helper(s, left, right - 1);
+        }
+
+        // Compare lowercase
+        if (Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) {
+            return false;
+        }
+
+        // Recurse on inner substring
+        return helper(s, left + 1, right - 1);
+    }
+
+    // soln8
+
+    public static  int fib(int n) {
+        /*
+        Time Complexity: O(2^N)
+        - Each call spawns 2 more calls (except base cases)
+        - Exponentially grows with N
+
+        Space Complexity: O(N)
+        - Recursion stack depth = N
+        */
+
+        // Base cases
+        if (n == 0) return 0;
+        if (n == 1) return 1;
+
+        // Recursive call
+        return fib(n - 1) + fib(n - 2);
+    }
+
 }
