@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class Problems {
 
     public static void main(String[] args) {
@@ -6,6 +10,9 @@ public class Problems {
         // ques 2) reverse Integer
         // ques 3) is palindrome?
         // ques 4) gcd/hcf
+        // ques 5) armstrong Number
+        // ques 6) print all Divisors of a number
+        // ques 7) prime number ?
     }
 
     // soln1
@@ -120,5 +127,71 @@ public class Problems {
         return a;
     }
 
-    
+
+    // soln5
+
+    public static boolean armstrongNumber(int n) {
+        // Time Complexity: O(d)
+        // where d = number of digits (max 3)
+
+        // Space Complexity: O(1)
+        // uses constant extra space
+
+        int sum = 0;
+        int originalNum = n;
+        while(n != 0) {
+            int digit = n%10;
+            sum += digit*digit*digit;
+            n/=10;
+        }
+        
+        return sum == originalNum;
+    }
+
+
+    // soln6 
+
+    public static List<Integer> printDivisors(int n) {
+        // Time Complexity - O(√n)
+        // Loop runs only till √n
+
+        // Space Complexity - O(d)
+        // Same as before (storing divisors)
+        // Sorting (optional) adds O(d log d)
+
+        List<Integer> divisors = new ArrayList<>();
+
+        for (int i = 1; i * i <= n; i++) {
+            if (n % i == 0) {
+                divisors.add(i);
+
+                if (i != n / i) {
+                    divisors.add(n / i);
+                }
+            }
+        }
+
+        Collections.sort(divisors); // optional, if order matters
+        return divisors;
+    }
+
+    // soln7
+
+    public static boolean isPrime(int n) {
+        //  Time Complexity: O(√n)
+        //  - Loop runs from 2 to √n
+        //  - If n has any factor, at least one will be ≤ √n
+
+        //  Space Complexity: O(1)
+        //  - Only constant extra variables are used
+
+        if(n==1) return false;
+        if(n==2) return true;
+        if(n%2==0) return false;
+
+        for(int i = 3; i*i <= n; i+=2) {
+            if(n%i==0) return false;
+        }
+        return true;
+    }
 }
