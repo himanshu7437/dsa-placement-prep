@@ -9,6 +9,11 @@ public class ProblemSet {
     // ques - 3) valid palindrome
     // ques - 4) Reverse words
     // ques - 5) Maximum Occurring Character
+    // ques - 6) Replace Spaces
+    // ques - 7) Remove All Occurrences of SubString
+    // ques - 8) string compression
+    // ques - 9) Permutation In String
+    // ques - 10) Remove All Adjacent Duplicates In String
     }
 
     //soln1 
@@ -233,6 +238,40 @@ public class ProblemSet {
         }
 
         return sb.toString();
+    }
+
+
+    // soln8
+
+
+    public int compress(char[] chars) {
+
+        int write = 0;   // index to write compressed chars
+        int read = 0;    // index to read original chars
+
+        while (read < chars.length) {
+            char currentChar = chars[read];
+            int count = 0;
+
+            // count occurrences
+            while (read < chars.length && chars[read] == currentChar) {
+                read++;
+                count++;
+            }
+
+            // write the character
+            chars[write++] = currentChar;
+
+            // write count if > 1
+            if (count > 1) {
+                String cnt = String.valueOf(count);
+                for (char c : cnt.toCharArray()) {
+                    chars[write++] = c;
+                }
+            }
+        }
+
+        return write;
     }
 
     
