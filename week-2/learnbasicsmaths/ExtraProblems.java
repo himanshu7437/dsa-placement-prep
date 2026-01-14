@@ -7,7 +7,7 @@ public class ExtraProblems {
         // ques - 2) power of two
         // ques - 3) power of three
         // ques - 4) power of four
-        // ques - 5) 
+        // ques - 5) add digits
 
     }
 
@@ -127,5 +127,65 @@ public class ExtraProblems {
 
     // soln5
 
+    // --- approach - 1(using loop) ----
 
+    public int addDigits1(int num) {
+        /*
+         * Time Complexity:
+         * - Each digit-sum operation takes O(d), where d = number of digits
+         * - The process repeats until the number becomes a single digit
+         * - Overall Time Complexity: O(d)
+         *
+         * Space Complexity:
+         * - O(1), because only a few integer variables are used
+         */
+
+        // Keep reducing the number until it becomes a single digit
+        while (num >= 10) {
+
+            int digitSum = 0;
+
+            // Extract digits and compute their sum
+            while (num != 0) {
+                int digit = num % 10;   // get last digit
+                digitSum += digit;      // add digit to sum
+                num /= 10;              // remove last digit
+            }
+
+            // Update num with the sum of digits
+            num = digitSum;
+        }
+
+        // Return the single-digit result
+        return num;
+    }
+
+    // --- approach 2(without loop) ---
+
+    public int addDigits2(int num) {
+        /*
+         * Time Complexity:
+         * - O(1) → constant time
+         *   No loops or recursion used
+         *
+         * Space Complexity:
+         * - O(1) → constant space
+         *   Only a few integer variables are used
+         */
+
+        // Edge case: if number is 0, its digital root is 0
+        if (num == 0) {
+            return 0;
+        }
+
+        // If number is divisible by 9, digital root is 9
+        if (num % 9 == 0) {
+            return 9;
+        }
+
+        // Otherwise, digital root is num % 9
+        return num % 9;
+    }
+
+    
 }
