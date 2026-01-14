@@ -5,7 +5,9 @@ public class ExtraProblems {
         
         // ques - 1) divide two Integers
         // ques - 2) power of two
-        // ques - 3) 
+        // ques - 3) power of three
+        // ques - 4) power of four
+        // ques - 5) 
 
     }
 
@@ -66,12 +68,64 @@ public class ExtraProblems {
 
     // soln2
 
-    public boolean isPowerOfTwo(int n) {
+    public static boolean isPowerOfTwo(int n) {
         // Time Complexity: O(1)
         // Space Complexity: O(1)
 
         return n > 0 && (n & (n-1)) == 0;
     }
+
+    // soln3
+
+    public static boolean isPowerOfThree(int n) {
+        /*
+        Time Complexity:
+        O(log₃ n)
+        - n is divided by 3 in each iteration
+
+        Space Complexity:
+        O(1)
+        - No extra space used
+        */
+
+        // Negative numbers and 0 cannot be powers of 3
+        if (n <= 0) return false;
+
+        // Keep dividing by 3 while possible
+        while (n % 3 == 0) {
+            n /= 3;
+        }
+
+        // If reduced to 1, it's a power of 3
+        return n == 1;
+    }
+
+    // soln4
+
+    public boolean isPowerOfFour(int n) {
+        /*
+        Time Complexity:
+        O(log₃ n)
+        - n is divided by 3 in each iteration
+
+        Space Complexity:
+        O(1)
+        - No extra space used
+        */
+
+        // Negative numbers and 0 cannot be powers of 4
+        if (n <= 0) return false;
+
+        // Keep dividing by 4 while possible
+        while (n % 4 == 0) {
+            n /= 4;
+        }
+
+        // If reduced to 1, it's a power of 4
+        return n == 1;
+    }
+
+    // soln5
 
 
 }
