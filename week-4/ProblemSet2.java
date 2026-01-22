@@ -1,3 +1,4 @@
+
 public class ProblemSet2 {
 
     public static void main(String[] args) {
@@ -211,6 +212,182 @@ public class ProblemSet2 {
             }
         }
         */
+
+
+        // ========================================================================================
+        // QUESTION 5: Union and Intersection of two sorted arrays
+        // Links:
+        // https://www.geeksforgeeks.org/problems/union-of-two-arrays3538/1
+        // https://www.geeksforgeeks.org/problems/intersection-of-two-sorted-array-1587115620/1
+        // ========================================================================================
+
+
+        // ------------------------------------
+        // UNION OF TWO SORTED ARRAYS
+        // ------------------------------------
+
+        /*
+        i) Brute Force Approach
+        Idea:
+        - Use a Set to store unique elements from both arrays
+        - Convert set to result list
+
+        Time Complexity:
+        - Insertion into set: O((n1 + n2) log(n1 + n2))
+        - Traversal: O(n1 + n2)
+
+        Space Complexity:
+        - O(n1 + n2)
+        */
+
+        // Code (Brute Force)
+        /*
+        Set<Integer> uniqueNum = new HashSet<>();
+        ArrayList<Integer> result = new ArrayList<>();
+
+        for (int num : a) {
+            uniqueNum.add(num);
+        }
+
+        for (int num : b) {
+            uniqueNum.add(num);
+        }
+
+        for (int num : uniqueNum) {
+            result.add(num);
+        }
+
+        return result;
+        */
+
+
+        /*
+        ii) Optimal Approach (Two Pointer)
+        Observation:
+        - Arrays are sorted
+        - Move pointers smartly to avoid duplicates
+
+        Time Complexity: O(n1 + n2)
+        Space Complexity: O(n1 + n2)  // output space
+        */
+
+        // Code (Optimal)
+        // public static ArrayList<Integer> unionSorted(int[] a, int[] b) {
+
+        //     int i = 0, j = 0;
+        //     ArrayList<Integer> union = new ArrayList<>();
+
+        //     while (i < a.length && j < b.length) {
+
+        //         if (a[i] < b[j]) {
+        //             if (union.isEmpty() || union.get(union.size() - 1) != a[i]) {
+        //                 union.add(a[i]);
+        //             }
+        //             i++;
+        //         } 
+        //         else if (a[i] > b[j]) {
+        //             if (union.isEmpty() || union.get(union.size() - 1) != b[j]) {
+        //                 union.add(b[j]);
+        //             }
+        //             j++;
+        //         } 
+        //         else {
+        //             if (union.isEmpty() || union.get(union.size() - 1) != a[i]) {
+        //                 union.add(a[i]);
+        //             }
+        //             i++;
+        //             j++;
+        //         }
+        //     }
+
+        //     while (i < a.length) {
+        //         if (union.get(union.size() - 1) != a[i]) {
+        //             union.add(a[i]);
+        //         }
+        //         i++;
+        //     }
+
+        //     while (j < b.length) {
+        //         if (union.get(union.size() - 1) != b[j]) {
+        //             union.add(b[j]);
+        //         }
+        //         j++;
+        //     }
+
+        //     return union;
+        // }
+
+
+        // ------------------------------------
+        // INTERSECTION OF TWO SORTED ARRAYS
+        // ------------------------------------
+
+        /*
+        i) Brute Force Approach
+        Idea:
+        - For each element in array1, search in array2
+        - Use visited array to avoid duplicates
+
+        Time Complexity: O(n1 * n2)
+        Space Complexity: O(n2)
+        */
+
+        // Code (Brute Force)
+        /*
+        boolean[] visited = new boolean[b.length];
+        ArrayList<Integer> intersection = new ArrayList<>();
+
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < b.length; j++) {
+                if (a[i] == b[j] && !visited[j]) {
+                    intersection.add(a[i]);
+                    visited[j] = true;
+                    break;
+                }
+                if (b[j] > a[i]) break;
+            }
+        }
+
+        return intersection;
+        */
+
+
+        /*
+        ii) Optimal Approach (Two Pointer)
+        Observation:
+        - Arrays are sorted
+        - Advance pointers based on comparison
+
+        Time Complexity: O(n1 + n2)
+        Space Complexity: O(min(n1, n2))  // output space
+        */
+
+        // Code (Optimal)
+        // public static ArrayList<Integer> intersectionSorted(int[] a, int[] b) {
+
+        //     int i = 0, j = 0;
+        //     ArrayList<Integer> intersection = new ArrayList<>();
+
+        //     while (i < a.length && j < b.length) {
+
+        //         if (a[i] < b[j]) {
+        //             i++;
+        //         } 
+        //         else if (a[i] > b[j]) {
+        //             j++;
+        //         } 
+        //         else {
+        //             // avoid duplicates
+        //             if (intersection.isEmpty() || intersection.get(intersection.size() - 1) != a[i]) {
+        //                 intersection.add(a[i]);
+        //             }
+        //             i++;
+        //             j++;
+        //         }
+        //     }
+
+        //     return intersection;
+        // }       
 
     }
 }
