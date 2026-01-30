@@ -287,5 +287,109 @@ public class ProblemSet4 {
         // }
         // return -1;
 
+        // ============================================================
+        // ques - 4) Kadane’s Algorithm (Maximum Subarray Sum)
+        // ============================================================
+        // link -
+        // https://leetcode.com/problems/maximum-subarray/description/
+        // https://www.geeksforgeeks.org/problems/kadanes-algorithm-1587115620/1
+
+        // ------------------------------------------------------------
+        // i) Brute Force
+        // ------------------------------------------------------------
+        // Idea:
+        // Generate all possible subarrays and calculate their sums.
+        // Track the maximum sum found.
+        //
+        // Time Complexity - O(n^3)
+        // Space Complexity - O(1)
+        //
+        // Code:
+        // (Not written due to very poor performance)
+
+        // ------------------------------------------------------------
+        // ii) Better Approach
+        // ------------------------------------------------------------
+        // Idea:
+        // Fix the starting index and expand the subarray to the right.
+        // This avoids recalculating sums from scratch.
+        //
+        // Note:
+        // This approach still gives TLE for large inputs, so avoid using it.
+        //
+        // Time Complexity - O(n^2)
+        // Space Complexity - O(1)
+        //
+        // Code (avoid using):
+        //
+        // if(nums.length == 1) return nums[0];
+        //
+        // int maxSum = Integer.MIN_VALUE;
+        // for(int i = 0; i < nums.length; i++) {
+        // int sum = 0;
+        // for(int j = i; j < nums.length; j++) {
+        // sum += nums[j];
+        // maxSum = Math.max(maxSum, sum);
+        // }
+        // }
+        // return maxSum;
+
+        // ------------------------------------------------------------
+        // iii) Optimal Approach (Kadane’s Algorithm)
+        // ------------------------------------------------------------
+        // Idea:
+        // Maintain a running sum.
+        // - Add current element to sum
+        // - Update maxSum if sum is greater
+        // - If sum becomes negative, reset it to 0
+        //
+        // Time Complexity - O(n)
+        // Space Complexity - O(1)
+        //
+        // Code:
+        //
+        // int maxSum = nums[0];
+        // int sum = 0;
+        //
+        // for(int i = 0; i < nums.length; i++) {
+        // sum += nums[i];
+        // maxSum = Math.max(maxSum, sum);
+        //
+        // if(sum < 0) {
+        // sum = 0;
+        // }
+        // }
+        // return maxSum;
+
+        // ============================================================
+        // ques - 5) Stock Buy and Sell (Best Time to Buy and Sell Stock)
+        // ============================================================
+        // link -
+        // https://www.geeksforgeeks.org/problems/stock-buy-and-sell-1587115621/1
+        // https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/
+
+        // ------------------------------------------------------------
+        // Optimal Approach
+        // ------------------------------------------------------------
+        // Idea:
+        // Track the minimum price seen so far.
+        // For each day, calculate profit by selling on that day.
+        // Update maximum profit accordingly.
+        //
+        // Time Complexity - O(n)
+        // Space Complexity - O(1)
+        //
+        // Code:
+        //
+        // int maxProfit = 0;
+        // int minPrice = prices[0];
+        //
+        // for(int i = 1; i < prices.length; i++) {
+        // int currentProfit = prices[i] - minPrice;
+        // maxProfit = Math.max(maxProfit, currentProfit);
+        // minPrice = Math.min(minPrice, prices[i]);
+        // }
+        // return maxProfit;
+
     }
 }
