@@ -122,6 +122,118 @@ public class ProblemSet1 {
         }
         */
 
+        // =====================================================================================
+        // Question 3: Median in a Row-wise Sorted Matrix
+        // Link:
+        // https://www.geeksforgeeks.org/problems/median-in-a-row-wise-sorted-matrix1527/1
+        // =====================================================================================
+
+        /*
+        -------------------------------
+        Brute Force Approach
+        -------------------------------
+        Idea:
+        - Store all elements of the matrix in a 1D array
+        - Sort the array
+        - Return the middle element
+
+        Time Complexity: O((n * m) + (n * m) log (n * m))
+        Space Complexity: O(n * m)
+        */
+
+        // Code
+        /*
+        int n = mat.length;
+        int m = mat[0].length;
+
+        int[] arr = new int[n * m];
+        int idx = 0;
+
+        // Store all elements in 1D array
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                arr[idx++] = mat[i][j];
+            }
+        }
+
+        // Sort the array
+        Arrays.sort(arr);
+
+        // Return median
+        return arr[(n * m) / 2];
+        */
+
+        /*
+        -------------------------------
+        Optimal Approach
+        -------------------------------
+        Observation:
+        - Each row is already sorted
+        - Median is the element at position (n*m)/2 in sorted order
+        - Use Binary Search on value range instead of indices
+
+        Approach:
+        - Find minimum element (first column)
+        - Find maximum element (last column)
+        - Binary search on the value range
+        - Count how many elements are ≤ mid using binary search on each row
+
+        Time Complexity: O(n * log m * log(max - min))
+        Space Complexity: O(1)
+        */
+
+        // Code
+        /*
+        public int median(int[][] matrix, int n, int m) {
+
+            int low = Integer.MAX_VALUE;
+            int high = Integer.MIN_VALUE;
+
+            // Find minimum and maximum values
+            for (int i = 0; i < n; i++) {
+                low = Math.min(low, matrix[i][0]);
+                high = Math.max(high, matrix[i][m - 1]);
+            }
+
+            int required = (n * m) / 2;
+
+            // Binary search on value range
+            while (low <= high) {
+                int mid = low + (high - low) / 2;
+                int count = 0;
+
+                // Count elements <= mid
+                for (int i = 0; i < n; i++) {
+                    count += upperBound(matrix[i], mid);
+                }
+
+                if (count <= required) {
+                    low = mid + 1;
+                } else {
+                    high = mid - 1;
+                }
+            }
+
+            return low;
+        }
+
+        // Upper bound: index of first element greater than target
+        public int upperBound(int[] row, int target) {
+            int low = 0, high = row.length;
+
+            while (low < high) {
+                int mid = low + (high - low) / 2;
+                if (row[mid] <= target) {
+                    low = mid + 1;
+                } else {
+                    high = mid;
+                }
+            }
+            return low;
+        }
+        */
+
+
 
         
     }
